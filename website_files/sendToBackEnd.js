@@ -63,7 +63,12 @@ for (var i = 0; i < inputValues.length; i++){
 
 //puts the start semester and number of semester object in beginning of array.
 inputValues.unshift({Starting_semester: startsem, NumberOfSemesters: numSemester});
-
+var service = new rpc.ServiceProxy("/app/service", {
+	asynchronous: true,
+	sanitize: true,
+	methods: ['plan']
+	protocol: 'XML-RPC',
+});
 
 console.log(JSON.stringify(inputValues));
 });
