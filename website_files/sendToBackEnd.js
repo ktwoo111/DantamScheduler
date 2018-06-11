@@ -63,11 +63,11 @@ for (var i = 0; i < inputValues.length; i++){
 
 //puts the start semester and number of semester object in beginning of array.
 inputValues.unshift({Starting_semester: startsem, NumberOfSemesters: numSemester});
-var service = new rpc.ServiceProxy("/app/service", {
+/*var service = new rpc.ServiceProxy("/RPC2", {
 	asynchronous: true,
 	sanitize: true,
-	methods: ['plan']
-	protocol: 'XML-RPC',
+	methods: ['plan'],
+	protocol: 'XML-RPC'
 });
 service.plan({
 	params:(JSON.stringify(inputValues)),
@@ -78,6 +78,22 @@ service.plan({
 		alert("Unable to plan schedule because:" e);
 		return true;
 	}
-});
+});*/
+var service = new rpc.ServiceProxy("/RPC2", {
+                         asynchronous: true,   //default: true
+                         sanitize: true,       //default: true
+                         methods: ['plan'],   //default: null (synchronous introspection populates)
+                         protocol: 'XML-RPC', //default: JSON-RPC
+ }); 
+ service.plan({
+    params:{name:"World"},
+    onSuccess:function(message){
+        alert(message);
+    },
+    onException:function(e){
+        alert("Unable to greet because: " + e);
+        return true;
+    }
+ });
 console.log(JSON.stringify(inputValues));
 });
