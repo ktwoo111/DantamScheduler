@@ -69,6 +69,15 @@ var service = new rpc.ServiceProxy("/app/service", {
 	methods: ['plan']
 	protocol: 'XML-RPC',
 });
-
+service.plan({
+	params:(JSON.stringify(inputValues)),
+	onSuccess:function(message){
+		alert(message);
+	},
+	onException:function(e){
+		alert("Unable to plan schedule because:" e);
+		return true;
+	}
+});
 console.log(JSON.stringify(inputValues));
 });
