@@ -72,9 +72,9 @@ $("#generateButton").click(function(){
                 desiredDataTable.row(this.data()).remove().draw(false);
 			}
 		});
-   
+
 	}
-    
+
     takenDataTable.rows().every( function ( rowIdx, tableLoop, rowLoop ) {
         taken.push(this.data()[0]);
     });
@@ -96,16 +96,16 @@ $("#generateButton").click(function(){
 	//puts the start semester and number of semester object in beginning of array.
 	inputValues.unshift({Starting_semester: startsem, NumberOfSemesters: numSemester});
     */
-    
+
     inputValues.taken = taken;
     inputValues.degree = degree;
     inputValues.modify = modify;
-	result = plan(inputValues, inputValues)
-	alert(result)
+	   //result = plan(inputValues, inputValues)
+	    //alert(result)
 
-	console.log(JSON.stringify(inputValues));
-    
-         var semesterContainer = document.getElementById("semesterContainer");
-	
-        loadElements(semesterContainer);
+	//console.log(JSON.stringify(inputValues));
+
+         //var semesterContainer = document.getElementById("semesterContainer");
+
+        //loadElements(semesterContainer);
 	});
