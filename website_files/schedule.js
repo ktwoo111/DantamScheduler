@@ -7,6 +7,10 @@ $(document).ready(function(){
 	
 } );
 
+function loadErrorMessage(errorMessage) {
+    $(semesterContainer).append($("<p id='error-message'>" + errorMessage + "</p>"));
+}
+
 function loadElements(semesterContainer) {
     $(semesterContainer).append($("<h2 id='schedule-label'>Generated Schedule</h2>"));
     var num = 0;
